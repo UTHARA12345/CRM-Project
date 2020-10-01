@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<style>
+body{
+color:#3b3d3b;
+}
+</style>
+
+
+    <div class="row">
+        <div class="col-lg"></div>
+        <div class="col-lg">
+            <h3><b><i>Counsellors</i></b></h3><br>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Create">
+</form>
+<hr>
+<table border="1px" class="table-dark"><hr>
+    {% for data in councillor %}
+    <tr>
+        <td>{{data.councillor_name}}</td>
+        <td><a href="{%url 'updatecouncillor' data.id%}" class="btn btn-success">Update</a> </td>
+        <td><a href="{%url 'deletecouncillor' data.id%}" class="btn btn-success">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+         </div>
+
+
+    <div class="col-lg"></div>
+    </div>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+{% endblock %}

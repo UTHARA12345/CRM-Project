@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+home
+
+<h1 align="center">Home</h1>
+<div class="container ">
+    <div class="row">
+        <div class="col-lg">
+
+        </div>
+        <div class="col-lg jumbotron border border-success "><br><br><br>
+        <table>
+            <h6>New Batches</h6>
+
+                {% for data in form %}
+                <tr>
+                    <td>{{data.course__course_name}} starts on  {{data.Batch_code__Batch_Date}}</td><br>
+                </tr>
+                {% endfor %}
+            <tr>
+                <td><a href="{%url 'report'%}" class="btn btn-success">Reports</a></td>
+            </tr>
+            </table>
+ </div>
+
+    <div class="col-lg"></div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-lg">
+
+        </div>
+        {% for data in form2 %}
+        <div class="col-lg jumbotron border border-success "><br><br><br>
+            <table>
+            <h5>{{data.Batch_code__Batch_code}}</h5>
+                <tr>
+
+                    <td>No of enquires:</td>
+                    <td>{{data.enqcount2}}</td>
+                </tr><br>
+                <tr>
+                    {% for data in form11 %}
+                    <td>No of students admitted:</td>
+                    <td>{{data.enqadmitted11}}</td>
+                    {% endfor %}
+
+                </tr>
+                <tr>
+                <td><a href="{%url 'viewbatch'%}" class="btn btn-success">Reports</a></td><br>
+            </tr><br>
+
+            </table><br>
+ </div><br>
+
+    {% endfor %}
+    <div class="col-lg"></div><br>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+
+
+          <div class="row">
+
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                    {% for data in form %}
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                          <table>
+
+                                     <tr>
+                                        <td>{{data.course__course_name}} starts on  {{data.Batch_code__Batch_Date}}</td>
+                                     </tr>
+
+                      </div>
+                    {% endfor %}
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><br><br>
+<hr>
+
+          <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                          <table>
+
+                                <tr>
+
+                                    <td>No of students admitted:</td>
+                                    {% for j in form11 %}
+                                    <td>{{j.Batch_code}}</td>
+                                    <td>{{j.enqadmitted11}}</td><br>
+                                    {% endfor %}
+                                    </tr>
+                                <tr>
+                                    <td><a href="{%url 'viewbatch'%}" class="btn btn-success">Reports</a></td>
+                                </tr>
+
+                          </table>
+                      </div>
+
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<style>
+.table-dark{
+margin-top:0px;
+}
+.col-md-10{
+margin-top:0px;
+}
+body{
+color:#3b3d3b;
+}
+</style>
+
+
+
+
+ <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Enquiries</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                        <th>Enquiry ID</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Qualification</th>
+                        <th>Status</th>
+                        <th>Batch</th>
+                        <th>councillor</th>
+                        <th>action1</th>
+                        <th>action2</th>
+                        <th>action3</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {% for data in enquiry %}
+                    <tr>
+                        <td id="one">{{data.enquiry_id}}</td>
+                        <td>{{data.student_name}}</td>
+                        <td>{{data.course}}</td>
+                        <td>{{data.qualification}}</td>
+                        <td>{{data.get_status_display}}</td>
+                        <td>{{data.Batch_code}}</td>
+                        <td>{{data.councillor }}</td>
+                        <td><a href="{%url 'detailenquiry' data.enquiry_id %}">View</a> </td>
+                        <td><a href="{%url 'updateenquiry' data.enquiry_id %}">Update</a> </td>
+                        <td><a href="{%url 'deleteenquiry' data.enquiry_id %}" >delete</a> </td>
+                    </tr><br>
+                    {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+ </div>
+
+
+
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+
+
+{% endblock %}

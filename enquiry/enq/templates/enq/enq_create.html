@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<style>
+body{
+color:#3b3d3b;
+}
+</style>
+
+    <div class="row">
+        <div class="col-lg">
+
+            <h1>CREATE </h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+            <td>Student name</td>
+            <td>{{form.student_name}}</td>
+            <td>Address</td>
+            <td>{{form.address}}</td>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td>Qualification</td>
+            <td>{{form.qualification}}</td>
+            <td>College</td>
+            <td>{{form.college_name}}</td>
+        </tr>
+        </tfoot>
+        <tr>
+            <td>Course</td>
+            <td>{{form.course}}</td>
+            <td>Batch Code</td>
+            <td>{{form.Batch_code}}</td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td>{{form.phone_no}}</td>
+            <td>Email ID</td>
+            <td>{{form.email}}</td>
+        </tr>
+        <tr>
+            <td>Followup</td>
+            <td>{{form.followup_date}}</td>
+            <td>Sourse</td>
+            <td>{{form.sourse}}</td>
+        </tr>
+        <tr>
+            <td>Councillor</td>
+            <td>{{form.councillor}}</td>
+            <td>Status</td>
+            <td>{{form.status}}</td>
+        </tr>
+    </table><br><br>
+
+    <input type="submit" class="btn btn-success" value="create">
+
+
+</form>
+ </div>
+
+
+
+    </div>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+<a href="{%url 'home' %}" class="btn btn-outline-success" style="margin-top: 30px;">Home</a>
+{% endblock %}

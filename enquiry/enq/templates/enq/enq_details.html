@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+
+<div class="row">
+        <div class="col-md-12">
+            <table border="1px" align="center">
+                <tr>
+                    <td>student_name</td>
+                    <td>address</td>
+                    <td>qualification</td>
+                    <td>college_name</td>
+                    <td>course</td>
+                    <td>Batch</td>
+                    <td>phone_no</td>
+                    <td>email</td>
+                    <td>enquiry_date</td>
+                    <td>followup_date</td>
+                    <td>sourse</td>
+                    <td>councillor</td>
+                    <td>status</td>
+                </tr>
+                <tr>
+
+
+                    <td>{{details.student_name}}</td>
+                    <td>{{details.address}}</td>
+                    <td>{{details.qualification}}</td>
+                    <td>{{details.college_name}}</td>
+                    <td>{{details.course}}</td>
+                    <td>{{details.Batch_code}}</td>
+                    <td>{{details.phone_no}}</td>
+                    <td>{{details.email}}</td>
+                    <td>{{details.enquiry_date}}</td>
+                    <td>{{details.followup_date}}</td>
+                    <td>{{details.sourse}}</td>
+                    <td>{{details.councillor}}</td>
+                    <td>{{details.get_status_display}}</td>
+                </tr>
+            </table><br><br>
+            <a href="{%url 'followupdetails' details.enquiry_id%}" class="btn btn-success">Followup</a>
+        </div>
+</div><br>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<style>
+body{
+color:#3b3d3b;
+}
+</style>
+
+
+    <h1>Search by Name</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="col-lg-5">
+    <input type="text" name="srh" class="form-control" placeholder="Enter name">
+        </div>
+        <label class="col-lg-2">
+    <button type="submit">search</button>
+        </label>
+    </div>
+
+
+</form>
+<br><br>
+<div>
+{% if messages %}
+    <ul class="messages">
+        {% for k in messages %}
+        <li style="color:black">{{ k }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+</div><br>
+<div style="color:black">
+    {% if sr %}
+    {% for k in sr %}
+    <table border="0px" width="300px">
+        <tr>
+            <td>Name</td>
+            <td>{{k.student_name}}</td>
+
+        </tr>
+        <tr>
+            <td>Admission No:</td>
+            <td>{{k.admission_no}}</td>
+        </tr>
+        <tr>
+            <td>Batch</td>
+            <td>{{k.Batch_code}}</td>
+        </tr>
+
+
+        </tr>
+    </table>
+    <hr>
+    {% endfor %}
+    {% endif %}
+</div>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+{% endblock %}

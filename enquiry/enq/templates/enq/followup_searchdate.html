@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<style>
+body{
+color:#3b3d3b;
+}
+</style>
+
+
+
+    <div class="row">
+        <div class="col-lg"></div>
+        <div class="col-lg-5"><br><br>
+            <h3><b><i>Search followups</i></b></h3><br>
+<form method="post">
+    {% csrf_token %}
+<b class=" text-dark">From </b>:<input type="date" name="fromdate"><br><br>
+<b class=" text-dark">To   </b>:<input type="date" name="todate">
+<input class="btn btn-dark" type="submit" value="submit">
+<hr>
+<table border="1px">
+
+        <th class="font-weight-bold text-dark">Student Name</th><th></th>
+        <th class="font-weight-bold text-dark">course</th><th></th>
+        <th class="font-weight-bold text-dark">contact</th><th></th>
+        <th class="font-weight-bold text-dark">followupdate</th><th></th>
+
+    </tr>
+    {% for result in data %}
+    <tr>
+        <td>{{result.student_name}}</td><td></td>
+        <td>{{result.course}}</td><td></td>
+        <td>{{result.phone_no}}</td><td></td>
+        <td>{{result.followup_date}}</td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+</form>
+
+    </div>
+
+
+    <div class="col-lg"></div>
+    </div>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+{% endblock %}

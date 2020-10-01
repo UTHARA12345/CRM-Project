@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<style>
+body{
+color:#3b3d3b;
+}
+</style>
+<div class="row ">
+        <div class="col-lg"></div>
+         <div class="col-lg">
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Create Batch</h6>
+    </div>
+        <div class="card-body">
+            <div class="card-body">
+          <div class="table-responsive1">
+            <form method="post" >
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit">
+            </form>
+          </div>
+            </div>
+        </div>
+</div>
+     </div>
+         <div class="col-lg"></div>
+</div>
+
+            <hr>
+              <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Batch List</h6>
+    </div>
+        <div class="card-body">
+            <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tbody>
+                    {% for data in batch %}
+                    <tr>
+                        <td>{{data.Batch_code}}</td>
+                        <td>{{data.Batch_Date}}</td>
+                        <td>{{data.get_Batch_Status_display}}</td>
+                        <td><a href="{%url 'updatebatch' data.id%}" class="btn btn-success">Update</a> </td>
+                        <td><a href="{%url 'batchreport' data.id%}" class="btn btn-success">Report</a></td>
+                        <td><a href="{%url 'deletebatch' data.id%}" class="btn btn-success">Delete</a> </td>
+                    </tr>
+                    {% endfor %}<br><br>
+                </tbody>
+            </table><br><br>
+          </div>
+            </div>
+        </div>
+</div>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+{% endblock %}

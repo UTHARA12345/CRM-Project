@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<h4>{{form1.Batch_code__Batch_code}}</h4>
+<table border="1px" class="table-dark">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Ph.No</th>
+        <th>councillor</th>
+    </tr>
+    </thead>
+    {% for data in form1 %}
+    <tr>
+            <td>{{data.student_name}}</td>
+            <td>{{data.phone_no}}</td>
+            <td>{{data.get_councillor_display}}</td>
+    </tr><br>
+    {% endfor %}<br>
+</table>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+{% endblock %}

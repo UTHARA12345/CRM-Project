@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<style>
+h3{
+color:#3b3d3b;
+}
+</style>
+<h3>Home</h3>
+<h5 align="right"><a href="{%url 'viewbatch' %}" >View (yet to begin)</a></h5><br>
+<h5 align="right"><a href="{%url 'viewbatchgo' %}" >View (on going)</a></h5><br>
+
+
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class=" h5 font-weight-bold text-primary text-uppercase mb-1">Upcomming</div>
+                      {% for data in form3 %}
+                        <div class="h8 mb-0 font-weight-bold text-gray-800">{{data.Batch_code__Batch_code}}</div>
+                      {% endfor %}
+                    </div>
+                      <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300">
+                          <span>{{form3.yet}}</span>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="h5 font-weight-bold text-success text-uppercase mb-1">Going</div>
+                      {% for data in form4 %}
+                        <div class="h8 mb-0 font-weight-bold text-gray-800">{{data.Batch_code__Batch_code}}</div>
+                      {% endfor %}
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tasks Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="h5 font-weight-bold text-info text-uppercase mb-1">Completed</div>
+                        {% for data in form4 %}
+                        <div class="h8 mb-0 font-weight-bold text-gray-800">{{data.Batch_code__Batch_code}}</div>
+                        {% endfor %}
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              
+            </div>
+          </div><br><br>
+        <div class="row">
+            <div class="col-md-4">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                  <h6 class="m-0 font-weight-bold text-primary">Enquiries</h6>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse show" id="collapseCardExample">
+                  <div class="card-body">
+                      {% for data in form2 %}
+                        {{data.Batch_code__Batch_code}}:{{data.enqcount2}}<br>
+                      {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#collapseCardExample1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                  <h6 class="m-0 font-weight-bold text-primary">Admitted</h6>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse show" id="collapseCardExample1">
+                  <div class="card-body">
+                      {% for j in form %}
+                        {{j.Batch_code__Batch_code}}:{{j.enq222}}<br>
+                      {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+{% endblock %}

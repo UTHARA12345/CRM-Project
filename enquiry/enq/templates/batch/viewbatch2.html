@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'enq/base1.html' %}
+{% block content %}
+<style>
+body{
+color:#3b3d3b;
+}
+</style>
+
+<h3 align="center"><b><i>Batch report (on going)</i></b></h3><br>
+    <div class="row">
+        {% for j in form %}
+        <div class="col-md-4">
+    <table border="1px" class="table-dark">
+    <tr>
+        <td>Batch</td><td>{{j.Batch_code__Batch_code}}</td>
+    </tr>
+    <tr>
+        <td>Course</td><td>{{j.Batch_code__course_name__course_name}}</td>
+    </tr>
+    <tr>
+        <td>Batch Date</td><td>{{j.Batch_code__Batch_Date}}</td>
+    </tr>
+    <tr>
+        <td>Admitted</td><td>{{j.enqadmitted11}}</td>
+    </tr>
+    <tr>
+        <td>Total Revenue</td><td>{{j.fee}}</td>
+    </tr>
+        </table><br>
+        </div>
+        {% endfor %}
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+    </div>
+<table>
+
+</table>
+<input type=button class="btn btn-outline-warning" style="margin-top: 30px;" value="Back" onClick="javascript:history.go(-1);">
+
+{% endblock %}
